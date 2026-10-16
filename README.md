@@ -1,5 +1,4 @@
 <html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bet Elfan — Graphic Designer &amp; Visual Artist</title>
@@ -276,7 +275,6 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
       </a>
       
-      </a>
     </div>
   </div>
 </section>

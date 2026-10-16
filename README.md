@@ -26,7 +26,7 @@ a{color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 .skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:200;font-weight:700}
 .skip:focus{top:12px}
-  
+
 /* logo-style offset color block */
 .tag{position:relative;display:inline-block;z-index:0}
 .tag::before{content:"";position:absolute;inset:6px -10px -8px 8px;z-index:-1}

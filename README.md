@@ -113,7 +113,6 @@ header{position:sticky;top:0;z-index:40;background:rgba(241,240,234,.95);backdro
 footer{padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:3px solid var(--ink)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
-</head>
 <body>
 <a href="#work" class="skip">Skip to content</a>
 

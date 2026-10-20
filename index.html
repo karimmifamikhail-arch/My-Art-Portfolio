@@ -67,6 +67,10 @@ h1{max-width:14ch;margin-bottom:10px;font-size:clamp(36px,5vw,52px);line-height:
 .work-lightbox-close{position:absolute;top:8px;right:8px;width:34px;height:34px;border:1px solid var(--line);border-radius:2px;background:var(--panel);color:var(--text);font-size:20px;cursor:pointer}
 .work-lightbox-image{width:100%;height:min(72vh,720px);object-fit:contain;background:#080a0b}
 .work-lightbox-title{margin:11px 0 0;color:var(--text);font-size:14px;font-weight:600}
+.cabinet-section{max-width:1500px;margin:auto;padding:14px 3% 34px}
+.cabinet-panel{width:min(100%,520px);margin:auto;padding:14px;border:1px solid var(--line);border-radius:3px;background:var(--panel);--hairline-plate:var(--panel);--hairline-hi:var(--gold-light);--hairline-edge:#a8a9ad;--hairline-mid:#70747a;--hairline-lo:var(--line);--hairline-stroke:.9}
+.cabinet-heading{margin:0 0 8px;font-size:16px}
+.cabinet-figure{width:100%;aspect-ratio:5/4}
 .shop-layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:32px;max-width:1500px;margin:auto;padding:28px 3% 56px}
 .sidebar{align-self:start;padding:14px;border:1px solid var(--line);border-radius:3px;background:#0d1012}
 .search-wrap{position:relative;margin-bottom:22px}
@@ -201,6 +205,13 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
     <img class="work-lightbox-image" id="work-lightbox-image" alt="">
     <p class="work-lightbox-title" id="work-lightbox-title"></p>
   </dialog>
+
+  <section class="cabinet-section" aria-labelledby="cabinet-heading">
+    <div class="cabinet-panel">
+      <h2 class="cabinet-heading" id="cabinet-heading">Cabinet</h2>
+      <div class="cabinet-figure" id="hairline-cabinet"></div>
+    </div>
+  </section>
 
   <div class="shop-layout" id="shop">
     <aside class="sidebar" aria-label="Artwork filters">
@@ -527,6 +538,18 @@ dialog.addEventListener('click',event=>{if(event.target === dialog) dialog.close
 
 render();
 renderInquiry();
+</script>
+<script type="module">
+import { cabinet } from "https://esm.sh/@lucasmarkes/hairline@0.5.1";
+
+const cabinetElement = document.getElementById("hairline-cabinet");
+if (cabinetElement) {
+  cabinet(cabinetElement, {
+    intensity: 0.8,
+    theme: "dark",
+    label: "Interactive rack of twelve server blades. Drag a finger vertically to extend nearby blades."
+  });
+}
 </script>
 </body>
 </html>

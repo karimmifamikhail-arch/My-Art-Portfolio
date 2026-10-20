@@ -78,7 +78,6 @@ h1{max-width:14ch;margin-bottom:10px;font-size:clamp(36px,5vw,52px);line-height:
 .product-image-wrap{position:relative;overflow:hidden;background:#202326;aspect-ratio:1.18}
 .product-image{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .product-card:hover .product-image{transform:scale(1.035)}
-.category-label{position:absolute;left:10px;top:10px;padding:5px 8px;background:rgba(9,11,13,.84);color:var(--gold-light);font-size:10px;font-weight:700;letter-spacing:.5px}
 .product-body{padding:13px}
 .product-name{margin:0 0 12px;font-size:15px;font-weight:700}
 .product-details{display:grid;gap:7px;margin:0 0 14px;color:#c8c9c6;font-size:12px}
@@ -326,11 +325,6 @@ function createArtworkCard(artwork){
   image.alt = artwork.alt;
   image.loading = 'lazy';
   imageWrap.append(image);
-
-  const category = document.createElement('span');
-  category.className = 'category-label';
-  category.textContent = artwork.category;
-  imageWrap.append(category);
 
   const body = document.createElement('div');
   body.className = 'product-body';

@@ -41,14 +41,21 @@ img{display:block;max-width:100%}
 .cart-button:hover{border-color:var(--gold);color:var(--gold-light)}
 .cart-button svg{width:18px;height:18px}
 .cart-count{display:grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:20px;background:var(--gold);color:#111;font-size:11px;font-weight:700}
-.hero{min-height:278px;display:flex;align-items:center;padding:44px 6%;background:linear-gradient(90deg,rgba(5,7,8,.97) 0%,rgba(5,7,8,.78) 46%,rgba(5,7,8,.2) 100%),url('New%20folder/imagesgraffiti-1.JPG.jpg') center 42%/cover;border-bottom:1px solid var(--line)}
+.hero{min-height:278px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:30px 6%;background:#0b0d0f;border-bottom:1px solid var(--line)}
 .hero-content{max-width:650px}
+.hero-logo{width:210px;aspect-ratio:1;flex:none;object-fit:contain;background:#fff}
 .eyebrow{margin:0 0 12px;color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
 h1,h2,h3,p{margin-top:0}
 h1,h2,.section-title{font-family:'Playfair Display',Georgia,serif;font-weight:600}
 h1{max-width:14ch;margin-bottom:10px;font-size:clamp(36px,5vw,52px);line-height:1.08}
 .hero-copy{max-width:48ch;margin:0;color:#dededb;font-size:16px}
 .gold-line{width:55px;height:3px;margin-top:22px;background:var(--gold)}
+.work-section{max-width:1500px;margin:auto;padding:28px 3% 10px}
+.work-title{margin:0 0 16px;font-size:22px}
+.work-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.work-image{margin:0;overflow:hidden;aspect-ratio:1.25;background:#171a1d}
+.work-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.work-image:hover img{transform:scale(1.035)}
 .shop-layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:32px;max-width:1500px;margin:auto;padding:28px 3% 56px}
 .sidebar{align-self:start;padding:14px;border:1px solid var(--line);border-radius:3px;background:#0d1012}
 .search-wrap{position:relative;margin-bottom:22px}
@@ -56,7 +63,7 @@ h1{max-width:14ch;margin-bottom:10px;font-size:clamp(36px,5vw,52px);line-height:
 .search{width:100%;height:42px;padding:0 12px 0 36px;border:1px solid #363a3e;border-radius:3px;background:var(--bg);color:var(--text)}
 .search::placeholder{color:#8f918f}
 .sidebar-title{margin:0 0 8px;font-size:15px}
-.filter-group{padding:15px 0;border-top:1px solid var(--line)}
+.filter-group{min-width:0;margin:0;padding:15px 0 0;border:0;border-top:1px solid var(--line)}
 .filter-heading{display:block;margin-bottom:10px;font-size:12px;font-weight:700;color:var(--text)}
 .filter-option{display:flex;align-items:center;gap:9px;margin:11px 0;color:var(--muted);font-size:12px;cursor:pointer}
 .filter-option input{width:14px;height:14px;margin:0;accent-color:var(--gold)}
@@ -118,9 +125,13 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   .main-nav{order:3;width:100%;justify-content:space-between;gap:8px;font-size:12px}
   .main-nav a{padding:7px 0 5px}
   .cart-button{padding:7px 9px;font-size:11px}
-  .hero{min-height:230px;padding:34px 6%;background-position:58% 42%}
-  h1{font-size:38px}
-  .hero-copy{font-size:14px}
+  .hero{min-height:210px;padding:26px 5%;gap:16px}
+  .hero-logo{width:132px}
+  h1{font-size:34px}
+  .hero-copy{font-size:13px}
+  .work-section{padding:22px 4% 8px}
+  .work-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .work-title{font-size:20px}
   .shop-layout{display:block;padding:20px 4% 38px}
   .sidebar{margin-bottom:22px}
   .sidebar-title{margin-bottom:4px}
@@ -137,7 +148,7 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   .about-inner{align-items:flex-start;flex-direction:column;padding:24px 5%}
   .site-footer{align-items:flex-start;flex-direction:column;padding:18px 5%}
 }
-@media(max-width:420px){.product-grid{grid-template-columns:1fr}.product-image-wrap{aspect-ratio:1.45}.products-head{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.main-nav{font-size:11px}}
+@media(max-width:420px){.product-grid{grid-template-columns:1fr}.product-image-wrap{aspect-ratio:1.45}.products-head{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.main-nav{font-size:11px}.hero-logo{width:112px}.hero-content{max-width:calc(100% - 128px)}h1{font-size:31px}.eyebrow{font-size:9px;letter-spacing:1.5px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -148,7 +159,7 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   <a class="wordmark" href="#home">KAREEM MILAD</a>
   <nav class="main-nav" aria-label="Main navigation">
     <a href="#home">Home</a>
-    <a href="#shop">Work</a>
+    <a href="#work">Work</a>
     <a href="#shop" aria-current="page">Shop</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
@@ -167,6 +178,22 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
       <p class="hero-copy">Original artworks. Unique pieces. Made with passion.</p>
       <div class="gold-line" aria-hidden="true"></div>
     </div>
+    <img class="hero-logo" src="logo.webp" alt="Kareem Milad logo" width="210" height="210">
+  </section>
+
+  <section class="work-section" id="work" aria-labelledby="work-title">
+    <h2 class="work-title" id="work-title">My Work</h2>
+    <div class="work-gallery">
+      <figure class="work-image"><img src="New%20folder/imagesgraffiti-1.JPG.jpg" alt="Graffiti warrior portrait" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/imagesgraffiti-2.JPG.jpg" alt="Cairo Sushi trailer mural" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/imagesgraffiti-3.JPG.jpg" alt="School wall mural" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/tatoo.png" alt="Tattoo artwork" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/tatoo%20(2).png" alt="Tattoo artwork" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/tatoo%20(3).png" alt="Tattoo artwork" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/portrait-1.jpg" alt="Pencil portrait" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/portrait-2.jpg" alt="Pencil portrait" loading="lazy"></figure>
+      <figure class="work-image"><img src="New%20folder/portrait-3.jpg" alt="Pencil portrait" loading="lazy"></figure>
+    </div>
   </section>
 
   <div class="shop-layout" id="shop">
@@ -177,20 +204,30 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
         <input class="search" id="search" type="search" placeholder="Search artworks..." autocomplete="off">
       </div>
       <h2 class="sidebar-title">Filter by</h2>
-      <fieldset class="filter-group" style="border-left:0;border-right:0;border-bottom:0;margin:0;padding-left:0;padding-right:0">
-        <legend class="filter-heading">Category</legend>
+      <fieldset class="filter-group">
+        <legend class="filter-heading">Price</legend>
         <div class="filter-options">
-          <label class="filter-option"><input type="checkbox" name="category" value="Graffiti"> Graffiti</label>
-          <label class="filter-option"><input type="checkbox" name="category" value="Tattoo Design"> Tattoo Design</label>
-          <label class="filter-option"><input type="checkbox" name="category" value="Pencil Portraits"> Pencil Portraits</label>
+          <label class="filter-option"><input type="checkbox" name="price" value="under1000"> Under 1,000 EGP</label>
+          <label class="filter-option"><input type="checkbox" name="price" value="1000-2000"> 1,000–2,000 EGP</label>
+          <label class="filter-option"><input type="checkbox" name="price" value="2000-5000"> 2,000–5,000 EGP</label>
+          <label class="filter-option"><input type="checkbox" name="price" value="over5000"> Above 5,000 EGP</label>
         </div>
       </fieldset>
-      <fieldset class="filter-group" style="border-left:0;border-right:0;border-bottom:0;margin:0;padding-left:0;padding-right:0">
-        <legend class="filter-heading">Medium</legend>
+      <fieldset class="filter-group">
+        <legend class="filter-heading">Size</legend>
         <div class="filter-options">
-          <label class="filter-option"><input type="checkbox" name="medium" value="Spray paint &amp; markers"> Spray paint</label>
-          <label class="filter-option"><input type="checkbox" name="medium" value="Tattoo artwork"> Tattoo artwork</label>
-          <label class="filter-option"><input type="checkbox" name="medium" value="Graphite pencil"> Graphite pencil</label>
+          <label class="filter-option"><input type="checkbox" name="size" value="small"> Small (under 50 cm)</label>
+          <label class="filter-option"><input type="checkbox" name="size" value="medium"> Medium (50–70 cm)</label>
+          <label class="filter-option"><input type="checkbox" name="size" value="large"> Large (over 70 cm)</label>
+        </div>
+      </fieldset>
+      <fieldset class="filter-group">
+        <legend class="filter-heading">Material</legend>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" name="material" value="Acrylic on Canvas"> Acrylic on Canvas</label>
+          <label class="filter-option"><input type="checkbox" name="material" value="Charcoal on Paper"> Charcoal on Paper</label>
+          <label class="filter-option"><input type="checkbox" name="material" value="Mixed Media"> Mixed Media</label>
+          <label class="filter-option"><input type="checkbox" name="material" value="Oil on Canvas"> Oil on Canvas</label>
         </div>
       </fieldset>
     </aside>
@@ -203,9 +240,10 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
         </div>
         <label class="sr-only" for="sort">Sort artworks</label>
         <select class="sort-select" id="sort">
-          <option value="featured">Sort by: Featured</option>
+          <option value="newest">Sort by: Newest</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
           <option value="az">Name: A to Z</option>
-          <option value="za">Name: Z to A</option>
         </select>
       </div>
       <div class="product-grid" id="product-grid" aria-live="polite"></div>
@@ -253,15 +291,12 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
 
 <script>
 const artworks = [
-  {name:'Warrior Portrait',category:'Graffiti',medium:'Spray paint & markers',image:'New%20folder/imagesgraffiti-1.JPG.jpg',alt:'Colorful hand-painted portrait of a bearded warrior'},
-  {name:'Cairo Sushi Mural',category:'Graffiti',medium:'Spray paint & markers',image:'New%20folder/imagesgraffiti-2.JPG.jpg',alt:'Hand-painted Cairo Sushi food trailer'},
-  {name:'Phoenix School Mural',category:'Graffiti',medium:'Spray paint & markers',image:'New%20folder/imagesgraffiti-3.JPG.jpg',alt:'Colorful mural portrait painted on a school wall'},
-  {name:'Tattoo Study 01',category:'Tattoo Design',medium:'Tattoo artwork',image:'New%20folder/tatoo.png',alt:'Original tattoo artwork, first design'},
-  {name:'Tattoo Study 02',category:'Tattoo Design',medium:'Tattoo artwork',image:'New%20folder/tatoo%20(2).png',alt:'Original tattoo artwork, second design'},
-  {name:'Tattoo Study 03',category:'Tattoo Design',medium:'Tattoo artwork',image:'New%20folder/tatoo%20(3).png',alt:'Original tattoo artwork, third design'},
-  {name:'Portrait Study 01',category:'Pencil Portraits',medium:'Graphite pencil',image:'New%20folder/portrait-1.jpg',alt:'Graphite pencil portrait, first piece'},
-  {name:'Portrait Study 02',category:'Pencil Portraits',medium:'Graphite pencil',image:'New%20folder/portrait-2.jpg',alt:'Graphite pencil portrait, second piece'},
-  {name:'Portrait Study 03',category:'Pencil Portraits',medium:'Graphite pencil',image:'New%20folder/portrait-3.jpg',alt:'Graphite pencil portrait, third piece'}
+  {name:'Warrior',size:'60 × 80 cm',material:'Acrylic on Canvas',price:3500,style:'Graffiti',image:'New%20folder/imagesgraffiti-1.JPG.jpg',alt:'Colorful hand-painted portrait of a bearded warrior',date:6},
+  {name:'Freedom',size:'50 × 70 cm',material:'Mixed Media',price:2800,style:'Portrait',image:'New%20folder/portrait-2.jpg',alt:'Pencil portrait of a woman',date:5},
+  {name:'The Eye',size:'40 × 50 cm',material:'Charcoal on Paper',price:1500,style:'Charcoal',image:'New%20folder/portrait-1.jpg',alt:'Charcoal portrait study',date:4},
+  {name:'Cairo Vibes',size:'60 × 80 cm',material:'Acrylic on Canvas',price:3200,style:'Graffiti',image:'New%20folder/imagesgraffiti-2.JPG.jpg',alt:'Hand-painted Cairo Sushi trailer mural',date:3},
+  {name:'Color Mind',size:'50 × 70 cm',material:'Mixed Media',price:2600,style:'Portrait',image:'New%20folder/portrait-3.jpg',alt:'Pencil portrait of a woman in a hat',date:2},
+  {name:'King',size:'60 × 80 cm',material:'Oil on Canvas',price:3500,style:'Graffiti',image:'New%20folder/imagesgraffiti-3.JPG.jpg',alt:'Colorful school wall mural',date:1}
 ];
 
 const grid = document.getElementById('product-grid');
@@ -305,7 +340,17 @@ function createArtworkCard(artwork){
 
   const details = document.createElement('div');
   details.className = 'product-details';
-  details.innerHTML = `<div><span class="detail-label">Medium</span><span>${artwork.medium}</span></div><div><span class="detail-label">Price</span><span class="product-price">On request</span></div>`;
+  [['Size',artwork.size],['Material',artwork.material],['Price',`${artwork.price.toLocaleString('en-US')} EGP`]].forEach(([label,value])=>{
+    const row = document.createElement('div');
+    const detailLabel = document.createElement('span');
+    detailLabel.className = 'detail-label';
+    detailLabel.textContent = label;
+    const detailValue = document.createElement('span');
+    detailValue.className = label === 'Price' ? 'product-price' : '';
+    detailValue.textContent = value;
+    row.append(detailLabel,detailValue);
+    details.append(row);
+  });
 
   const button = document.createElement('button');
   button.className = 'add-button';
@@ -322,15 +367,21 @@ function createArtworkCard(artwork){
 
 function render(){
   const query = search.value.trim().toLocaleLowerCase();
-  const categories = checkedValues('category');
-  const mediums = checkedValues('medium');
+  const prices = checkedValues('price');
+  const sizes = checkedValues('size');
+  const materials = checkedValues('material');
   let visible = artworks.filter(artwork=>{
-    const text = `${artwork.name} ${artwork.category} ${artwork.medium}`.toLocaleLowerCase();
-    return text.includes(query) && (!categories.length || categories.includes(artwork.category)) && (!mediums.length || mediums.includes(artwork.medium));
+    const size = Number.parseInt(artwork.size,10);
+    const priceGroup = artwork.price < 1000 ? 'under1000' : artwork.price <= 2000 ? '1000-2000' : artwork.price <= 5000 ? '2000-5000' : 'over5000';
+    const sizeGroup = size < 50 ? 'small' : size <= 70 ? 'medium' : 'large';
+    const text = `${artwork.name} ${artwork.material} ${artwork.style}`.toLocaleLowerCase();
+    return text.includes(query) && (!prices.length || prices.includes(priceGroup)) && (!sizes.length || sizes.includes(sizeGroup)) && (!materials.length || materials.includes(artwork.material));
   });
 
+  if(sort.value === 'low') visible.sort((a,b)=>a.price-b.price);
+  if(sort.value === 'high') visible.sort((a,b)=>b.price-a.price);
   if(sort.value === 'az') visible.sort((a,b)=>a.name.localeCompare(b.name));
-  if(sort.value === 'za') visible.sort((a,b)=>b.name.localeCompare(a.name));
+  if(sort.value === 'newest') visible.sort((a,b)=>b.date-a.date);
 
   grid.replaceChildren();
   if(visible.length){

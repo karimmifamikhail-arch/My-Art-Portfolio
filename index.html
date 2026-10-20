@@ -52,10 +52,21 @@ h1{max-width:14ch;margin-bottom:10px;font-size:clamp(36px,5vw,52px);line-height:
 .gold-line{width:55px;height:3px;margin-top:22px;background:var(--gold)}
 .work-section{max-width:1500px;margin:auto;padding:28px 3% 10px}
 .work-title{margin:0 0 16px;font-size:22px}
-.work-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.work-image{margin:0;overflow:hidden;aspect-ratio:1.25;background:#171a1d}
-.work-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
-.work-image:hover img{transform:scale(1.035)}
+.work-gallery{display:grid;gap:22px}
+.work-category-title{margin:0 0 10px;color:var(--gold-light);font-size:14px;font-weight:700}
+.work-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.work-card{min-width:0;overflow:hidden;border:1px solid #303438;border-radius:3px;background:var(--panel);transition:border-color .2s,transform .2s}
+.work-card:hover{transform:translateY(-2px);border-color:var(--gold)}
+.work-card-preview{position:relative;display:block;width:100%;aspect-ratio:1.25;padding:0;overflow:hidden;border:0;background:#171a1d;cursor:zoom-in}
+.work-card-preview img{width:100%;height:100%;object-fit:contain;transition:transform .35s}
+.work-card:hover .work-card-preview img{transform:scale(1.025)}
+.work-type-label{position:absolute;top:9px;left:9px;padding:5px 8px;border:1px solid rgba(197,173,117,.45);border-radius:2px;background:rgba(9,11,13,.88);color:var(--gold-light);font-size:10px;font-weight:700}
+.work-card-name{margin:0;padding:10px 11px 12px;color:var(--text);font-size:13px;font-weight:600}
+.work-lightbox{position:fixed;width:min(900px,calc(100% - 32px));max-width:none;max-height:calc(100% - 32px);padding:44px 18px 18px;border:1px solid #41464a;border-radius:3px;background:#0d1012;color:var(--text)}
+.work-lightbox::backdrop{background:rgba(0,0,0,.86);backdrop-filter:blur(3px)}
+.work-lightbox-close{position:absolute;top:8px;right:8px;width:34px;height:34px;border:1px solid var(--line);border-radius:2px;background:var(--panel);color:var(--text);font-size:20px;cursor:pointer}
+.work-lightbox-image{width:100%;height:min(72vh,720px);object-fit:contain;background:#080a0b}
+.work-lightbox-title{margin:11px 0 0;color:var(--text);font-size:14px;font-weight:600}
 .shop-layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:32px;max-width:1500px;margin:auto;padding:28px 3% 56px}
 .sidebar{align-self:start;padding:14px;border:1px solid var(--line);border-radius:3px;background:#0d1012}
 .search-wrap{position:relative;margin-bottom:22px}
@@ -129,7 +140,7 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   h1{font-size:34px}
   .hero-copy{font-size:13px}
   .work-section{padding:22px 4% 8px}
-  .work-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .work-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .work-title{font-size:20px}
   .shop-layout{display:block;padding:20px 4% 38px}
   .sidebar{margin-bottom:22px}
@@ -147,7 +158,7 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   .about-inner{align-items:flex-start;flex-direction:column;padding:24px 5%}
   .site-footer{align-items:flex-start;flex-direction:column;padding:18px 5%}
 }
-@media(max-width:420px){.product-grid{grid-template-columns:1fr}.product-image-wrap{aspect-ratio:1.45}.products-head{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.main-nav{font-size:11px}.hero-logo{width:112px}.hero-content{max-width:calc(100% - 128px)}h1{font-size:31px}.eyebrow{font-size:9px;letter-spacing:1.5px}}
+@media(max-width:420px){.product-grid{grid-template-columns:1fr}.product-image-wrap{aspect-ratio:1.45}.products-head{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.main-nav{font-size:11px}.hero-logo{width:112px}.hero-content{max-width:calc(100% - 128px)}h1{font-size:31px}.eyebrow{font-size:9px;letter-spacing:1.5px}.work-card-grid{gap:8px}.work-card-name{padding:9px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -182,18 +193,14 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
 
   <section class="work-section" id="work" aria-labelledby="work-title">
     <h2 class="work-title" id="work-title">My Work</h2>
-    <div class="work-gallery">
-      <figure class="work-image"><img src="New%20folder/imagesgraffiti-1.JPG.jpg" alt="Graffiti warrior portrait" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/imagesgraffiti-2.JPG.jpg" alt="Cairo Sushi trailer mural" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/imagesgraffiti-3.JPG.jpg" alt="School wall mural" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/tatoo.png" alt="Tattoo artwork" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/tatoo%20(2).png" alt="Tattoo artwork" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/tatoo%20(3).png" alt="Tattoo artwork" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/portrait-1.jpg" alt="Pencil portrait" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/portrait-2.jpg" alt="Pencil portrait" loading="lazy"></figure>
-      <figure class="work-image"><img src="New%20folder/portrait-3.jpg" alt="Pencil portrait" loading="lazy"></figure>
-    </div>
+    <div class="work-gallery" id="work-gallery"></div>
   </section>
+
+  <dialog class="work-lightbox" id="work-lightbox" aria-label="Artwork preview">
+    <button class="work-lightbox-close" id="work-lightbox-close" type="button" aria-label="Close artwork preview">×</button>
+    <img class="work-lightbox-image" id="work-lightbox-image" alt="">
+    <p class="work-lightbox-title" id="work-lightbox-title"></p>
+  </dialog>
 
   <div class="shop-layout" id="shop">
     <aside class="sidebar" aria-label="Artwork filters">
@@ -289,6 +296,77 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
 <p class="sr-only" id="status-message" aria-live="polite"></p>
 
 <script>
+const portfolioWorks = [
+  {category:'Oil Painting',name:'Golden Hour',image:'https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=1200&q=85',alt:'Colorful oil painting'},
+  {category:'Oil Painting',name:'Blue Reverie',image:'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1200&q=85',alt:'Expressive oil painting'},
+  {category:'Oil Painting',name:'Nile at Dusk',image:'https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1200&q=85',alt:'Fine art painting'},
+  {category:'Graffiti',name:'Street Pulse',image:'New%20folder/imagesgraffiti-1.JPG.jpg',alt:'Graffiti warrior portrait'},
+  {category:'Graffiti',name:'Cairo Colors',image:'New%20folder/imagesgraffiti-2.JPG.jpg',alt:'Cairo Sushi trailer mural'},
+  {category:'Graffiti',name:'Phoenix Wall',image:'New%20folder/imagesgraffiti-3.JPG.jpg',alt:'Phoenix school wall mural'},
+  {category:'Portrait',name:'Quiet Gaze',image:'New%20folder/portrait-1.jpg',alt:'Pencil portrait'},
+  {category:'Portrait',name:'Her Story',image:'New%20folder/portrait-2.jpg',alt:'Pencil portrait'},
+  {category:'Portrait',name:'Soft Light',image:'New%20folder/portrait-3.jpg',alt:'Pencil portrait'},
+  {category:'Mosaic',name:'Fragments of Sun',image:'https://images.unsplash.com/photo-1630695694291-c767518705e4?auto=format&fit=crop&w=1200&q=85',alt:'Tree artwork made from colorful mosaic pieces'},
+  {category:'Mosaic',name:'Pattern in Motion',image:'https://images.unsplash.com/photo-1631715629294-71d905c66378?auto=format&fit=crop&w=1200&q=85',alt:'Close-up of an ancient mosaic wall'},
+  {category:'Mosaic',name:'A Thousand Pieces',image:'https://images.unsplash.com/photo-1774212023477-6bb22a3b249f?auto=format&fit=crop&w=1200&q=85',alt:'Close-up mosaic of a woman’s face'},
+  {category:'Tattoo',name:'Phoenix Linework',image:'New%20folder/tatoo.png',alt:'Phoenix tattoo design'},
+  {category:'Tattoo',name:'Sacred Geometry',image:'New%20folder/tatoo%20(2).png',alt:'Geometric tattoo design'},
+  {category:'Tattoo',name:'Botanical Blackwork',image:'New%20folder/tatoo%20(3).png',alt:'Botanical tattoo design'}
+];
+
+const workGallery = document.getElementById('work-gallery');
+const workLightbox = document.getElementById('work-lightbox');
+const workLightboxImage = document.getElementById('work-lightbox-image');
+const workLightboxTitle = document.getElementById('work-lightbox-title');
+
+for(const category of [...new Set(portfolioWorks.map(work=>work.category))]){
+  const group = document.createElement('section');
+  group.className = 'work-category';
+  const heading = document.createElement('h3');
+  heading.className = 'work-category-title';
+  heading.textContent = category;
+  const cards = document.createElement('div');
+  cards.className = 'work-card-grid';
+
+  portfolioWorks.filter(work=>work.category === category).forEach(work=>{
+    const card = document.createElement('article');
+    card.className = 'work-card';
+    const preview = document.createElement('button');
+    preview.className = 'work-card-preview';
+    preview.type = 'button';
+    preview.dataset.artworkPreview = work.name;
+    preview.setAttribute('aria-label',`View ${work.name} larger`);
+    const image = document.createElement('img');
+    image.src = work.image;
+    image.alt = work.alt;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    const label = document.createElement('span');
+    label.className = 'work-type-label';
+    label.textContent = category;
+    preview.append(image,label);
+    const name = document.createElement('h4');
+    name.className = 'work-card-name';
+    name.textContent = work.name;
+    card.append(preview,name);
+    cards.append(card);
+  });
+
+  group.append(heading,cards);
+  workGallery.append(group);
+}
+
+workGallery.addEventListener('click',event=>{
+  const preview = event.target.closest('[data-artwork-preview]');
+  if(!preview) return;
+  workLightboxImage.src = preview.querySelector('img').currentSrc || preview.querySelector('img').src;
+  workLightboxImage.alt = preview.querySelector('img').alt;
+  workLightboxTitle.textContent = preview.dataset.artworkPreview;
+  workLightbox.showModal();
+});
+document.getElementById('work-lightbox-close').addEventListener('click',()=>workLightbox.close());
+workLightbox.addEventListener('click',event=>{if(event.target === workLightbox) workLightbox.close()});
+
 const artworks = [
   {name:'Warrior',size:'60 × 80 cm',material:'Acrylic on Canvas',price:3500,style:'Graffiti',image:'https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=85',alt:'Abstract colorful painting',date:6},
   {name:'Freedom',size:'50 × 70 cm',material:'Mixed Media',price:2800,style:'Portrait',image:'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=85',alt:'Expressive portrait artwork',date:5},

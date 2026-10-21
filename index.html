@@ -47,15 +47,21 @@ h1,h2,.section-title{font-family:'Playfair Display',Georgia,serif;font-weight:60
 .work-section{max-width:1500px;margin:auto;padding:28px 3% 10px}
 .work-title{margin:0 0 16px;font-size:22px}
 .work-gallery{display:grid;gap:22px}
-.work-category-title{margin:0 0 10px;color:var(--brand-red);font-size:14px;font-weight:700}
-.work-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.work-card{min-width:0;overflow:hidden;border:1px solid #d6d3ca;border-radius:3px;background:var(--panel);transition:border-color .2s,transform .2s}
+.work-category-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px}
+.work-category-title{margin:0;color:var(--brand-red);font-size:14px;font-weight:700}
+.work-carousel-controls{display:flex;gap:8px}
+.work-carousel-arrow{display:grid;place-items:center;width:38px;height:34px;padding:0;border:1px solid var(--brand-red);border-radius:2px;background:transparent;color:var(--brand-red);font-size:25px;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.work-carousel-arrow:hover:not(:disabled){background:var(--brand-red);color:#fff}
+.work-carousel-arrow:disabled{border-color:#c6c3ba;color:#aaa;cursor:default}
+.work-card-track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(165px,18vw,230px);gap:15px;overflow-x:auto;padding:0 2px 13px;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--brand-red) #e5e2da;touch-action:pan-x}
+.work-card{min-width:0;overflow:hidden;border:1px solid #d6d3ca;border-radius:3px;background:var(--panel);scroll-snap-align:start;transition:border-color .2s,transform .2s}
 .work-card:hover{transform:translateY(-2px);border-color:var(--brand-red)}
-.work-card-preview{position:relative;display:block;width:100%;aspect-ratio:1.25;padding:0;overflow:hidden;border:0;background:#eceae4;cursor:zoom-in}
-.work-card-preview img{width:100%;height:100%;object-fit:contain;transition:transform .35s}
-.work-card:hover .work-card-preview img{transform:scale(1.025)}
-.work-type-label{position:absolute;top:9px;left:9px;padding:5px 8px;border:1px solid rgba(63,169,220,.65);border-radius:2px;background:rgba(17,17,17,.92);color:#ffffff;font-size:10px;font-weight:700}
-.work-card-name{margin:0;padding:10px 11px 12px;color:var(--text);font-size:13px;font-weight:600}
+.work-card-preview{position:relative;display:block;width:100%;aspect-ratio:2/3;padding:0;overflow:hidden;border:0;background:#eceae4;cursor:zoom-in;text-align:left}
+.work-card-preview::after{position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.86));content:"";pointer-events:none}
+.work-card-preview img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s}
+.work-card:hover .work-card-preview img{transform:scale(1.055);filter:brightness(1.07)}
+.work-type-label{position:absolute;z-index:2;top:15px;left:-35px;width:128px;padding:5px 4px;transform:rotate(-45deg);background:var(--brand-red);color:#fff;font-size:10px;font-weight:700;line-height:1.4;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+.work-card-name{position:absolute;z-index:2;right:0;bottom:0;left:0;margin:0;padding:40px 12px 12px;color:#fff;font-size:13px;font-weight:700;line-height:1.35}
 .work-lightbox{position:fixed;width:min(900px,calc(100% - 32px));max-width:none;max-height:calc(100% - 32px);padding:44px 18px 18px;border:1px solid #d6d3ca;border-radius:3px;background:#ffffff;color:var(--text)}
 .work-lightbox::backdrop{background:rgba(0,0,0,.86);backdrop-filter:blur(3px)}
 .work-lightbox-close{position:absolute;top:8px;right:8px;width:34px;height:34px;border:1px solid var(--line);border-radius:2px;background:var(--panel);color:var(--text);font-size:20px;cursor:pointer}
@@ -130,7 +136,7 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   .main-nav a{padding:7px 0 5px}
   .cart-button{padding:7px 9px;font-size:11px}
   .work-section{padding:22px 4% 8px}
-  .work-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  
   .work-title{font-size:20px}
   .shop-layout{display:block;padding:20px 4% 38px}
   .sidebar{margin-bottom:22px}
@@ -148,7 +154,7 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   .about-inner{align-items:flex-start;flex-direction:column;padding:24px 5%}
   .site-footer{align-items:flex-start;flex-direction:column;padding:18px 5%}
 }
-@media(max-width:420px){.product-grid{grid-template-columns:1fr}.product-image-wrap{height:170px;aspect-ratio:auto}.products-head{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.main-nav{font-size:11px}.eyebrow{font-size:9px;letter-spacing:1.5px}.work-card-grid{gap:8px}.work-card-name{padding:9px;font-size:12px}}
+@media(max-width:420px){.product-grid{grid-template-columns:1fr}.product-image-wrap{height:170px;aspect-ratio:auto}.products-head{align-items:flex-start;flex-direction:column}.sort-select{max-width:none;width:100%}.main-nav{font-size:11px}.eyebrow{font-size:9px;letter-spacing:1.5px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 <link rel="stylesheet" href="shop-hero.css">
@@ -330,11 +336,33 @@ const workLightboxTitle = document.getElementById('work-lightbox-title');
 for(const category of [...new Set(portfolioWorks.map(work=>work.category))]){
   const group = document.createElement('section');
   group.className = 'work-category';
+
+  const header = document.createElement('div');
+  header.className = 'work-category-head';
   const heading = document.createElement('h3');
   heading.className = 'work-category-title';
   heading.textContent = category;
+
+  const controls = document.createElement('div');
+  controls.className = 'work-carousel-controls';
+  const previous = document.createElement('button');
+  previous.className = 'work-carousel-arrow';
+  previous.type = 'button';
+  previous.textContent = '‹';
+  previous.setAttribute('aria-label', `Scroll ${category} works backward`);
+  const next = document.createElement('button');
+  next.className = 'work-carousel-arrow';
+  next.type = 'button';
+  next.textContent = '›';
+  next.setAttribute('aria-label', `Scroll ${category} works forward`);
+  controls.append(previous,next);
+  header.append(heading,controls);
+
   const cards = document.createElement('div');
-  cards.className = 'work-card-grid';
+  cards.className = 'work-card-track';
+  cards.tabIndex = 0;
+  cards.setAttribute('role','region');
+  cards.setAttribute('aria-label', `${category} artworks`);
 
   portfolioWorks.filter(work=>work.category === category).forEach(work=>{
     const card = document.createElement('article');
@@ -352,18 +380,34 @@ for(const category of [...new Set(portfolioWorks.map(work=>work.category))]){
     const label = document.createElement('span');
     label.className = 'work-type-label';
     label.textContent = category;
-    preview.append(image,label);
+    label.setAttribute('aria-hidden','true');
     const name = document.createElement('h4');
     name.className = 'work-card-name';
     name.textContent = work.name;
-    card.append(preview,name);
+    preview.append(image,label,name);
+    card.append(preview);
     cards.append(card);
   });
 
-  group.append(heading,cards);
+  const updateControls = ()=>{
+    const maxScroll = cards.scrollWidth - cards.clientWidth;
+    previous.disabled = cards.scrollLeft <= 2;
+    next.disabled = cards.scrollLeft >= maxScroll - 2;
+  };
+  const scrollByCard = direction=>{
+    const card = cards.querySelector('.work-card');
+    const gap = Number.parseFloat(getComputedStyle(cards).columnGap) || 0;
+    cards.scrollBy({left:direction * ((card?.getBoundingClientRect().width || cards.clientWidth) + gap),behavior:'smooth'});
+  };
+  previous.addEventListener('click',()=>scrollByCard(-1));
+  next.addEventListener('click',()=>scrollByCard(1));
+  cards.addEventListener('scroll',updateControls,{passive:true});
+  window.addEventListener('resize',updateControls);
+  requestAnimationFrame(updateControls);
+
+  group.append(header,cards);
   workGallery.append(group);
 }
-
 workGallery.addEventListener('click',event=>{
   const preview = event.target.closest('[data-artwork-preview]');
   if(!preview) return;

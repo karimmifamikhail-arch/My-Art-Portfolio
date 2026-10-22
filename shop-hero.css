@@ -18,7 +18,7 @@
 .shop-hero__step-n{display:grid;place-items:center;flex:none;width:22px;height:22px;border:1.5px solid var(--brand-red);border-radius:50%;color:var(--ink);font-size:10px;font-weight:800}
 .shop-hero__steps li:nth-child(2) .shop-hero__step-n{border-color:var(--brand-blue)}
 .shop-hero__steps li:nth-child(3) .shop-hero__step-n{border-color:#aaa500;background:var(--brand-yellow)}
-.shop-hero__art{position:relative;z-index:0;width:min(100%,310px);aspect-ratio:1;margin:0 auto
+.shop-hero__art{position:relative;z-index:0;width:min(100%,310px);aspect-ratio:1;margin:0 auto}
 .shop-hero__art::before,.shop-hero__art::after{position:absolute;z-index:-1;content:""}
 .shop-hero__art::before{top:-13px;right:-13px;width:34%;height:34%;background:var(--brand-red)}
 .shop-hero__art::after{bottom:-14px;left:-14px;width:42%;height:22%;background:var(--brand-yellow)}

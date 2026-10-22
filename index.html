@@ -17,12 +17,12 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f7f6f2;--panel:#ffffff;--panel-raised:#efeee9;--line:#d6d3ca;--text:#171717;--muted:#595955;--ink:#111111;--brand-red:#cf3036;--brand-blue:#3fa9dc;--brand-yellow:#e2df36;--header-height:68px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 18px)}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Manrope',Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
 body:has(dialog[open]){overflow:hidden}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
@@ -43,7 +43,7 @@ img{display:block;max-width:100%}
 .cart-count{display:grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:20px;background:var(--brand-yellow);color:var(--ink);font-size:11px;font-weight:700}
 .eyebrow{margin:0 0 12px;color:var(--brand-red);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
 h1,h2,h3,p{margin-top:0}
-h1,h2,.section-title{font-family:'Playfair Display',Georgia,serif;font-weight:600}
+h1,h2,.section-title{font-family:'Manrope',Arial,sans-serif;font-weight:800;letter-spacing:-.035em}
 .work-section{max-width:1500px;min-width:0;margin:auto;padding:28px 3% 10px;overflow:hidden}
 .work-title{margin:0 0 16px;font-size:22px}
 .work-gallery{display:grid;min-width:0;gap:22px}
@@ -181,20 +181,9 @@ dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3px)}
   <section class="shop-hero" id="shop-hero" aria-labelledby="shop-hero-title">
     <div class="shop-hero__inner">
       <div class="shop-hero__copy">
-        <p class="shop-hero__eyebrow">Kareem Milad <span>Visual artist · Giza, Egypt</span></p>
-        <h1 class="shop-hero__title" id="shop-hero-title">Shop <span>my art</span></h1>
-        <p class="shop-hero__lead">
-          Original graffiti, tattoo designs, portraits and mosaics. Add your favorites to one inquiry list.
-        </p>
-        <div class="shop-hero__actions">
-          <a class="shop-hero__btn shop-hero__btn--primary" href="#work">Browse the pieces</a>
-          <a class="shop-hero__btn shop-hero__btn--ghost" href="#shop-how">How it works</a>
-        </div>
-        <ol class="shop-hero__steps" id="shop-how">
-          <li><span class="shop-hero__step-n">1</span><span>Pick a piece you like</span></li>
-          <li><span class="shop-hero__step-n">2</span><span>Add it to your inquiry list</span></li>
-          <li><span class="shop-hero__step-n">3</span><span>Send the list and I'll get back to you</span></li>
-        </ol>
+        <p class="shop-hero__eyebrow">Kareem Milad <span>Giza, Egypt</span></p>
+        <h1 class="shop-hero__title" id="shop-hero-title">Visual <span>Artist</span></h1>
+        <p class="shop-hero__lead">Graffiti · Tattoo Design · Pencil Portraits · Mosaics</p>
       </div>
       <figure class="shop-hero__art">
         <img src="logo-512.png" alt="Kareem Milad's original artist logo" width="512" height="512">
